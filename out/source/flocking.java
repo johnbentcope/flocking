@@ -143,22 +143,22 @@ public int getI(int x, int y, int w){
 
 public float getC(int c)
 {
-  return constrain(255-(255*(255-red(c)-getK(c)) / (255-getK(c))), 0,255);
+  return constrain((255*(255-red(c)-getK(c)) / (255-getK(c))), 0,255);
 }
 
 public float getM(int c)
 {
-  return constrain(255-(255 / (255-getK(c) *(255-green(c)-getK(c)))), 0,255);
+  return constrain((255*(255-green(c)-getK(c)) / (255-getK(c))), 0,255);
 }
 
 public float getY(int c)
 {
-  return constrain(255-(255*(255-blue(c)-getK(c)) / (255-getK(c))), 0,255);
+  return constrain((255*(255-blue(c)-getK(c)) / (255-getK(c))), 0,255);
 }
 
 public float getK(int c)
 {
-  return max( red(c), green(c), blue(c) );
+  return 255-max( red(c), green(c), blue(c) );
 }
 
 public void keyPressed()
